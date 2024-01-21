@@ -4,10 +4,10 @@ from .models import Project, Pledge
 from .serializers import ProjectSerializer, PledgeSerializer, ProjectDetailSerializer
 from django.http import Http404
 from rest_framework import status, permissions
-from .permissions import IsOwnerOrReadOnly
+# from .permissions import IsOwnerOrReadOnly
 
 class ProjectList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         projects = Project.objects.all()
@@ -30,14 +30,14 @@ class ProjectList(APIView):
 
 class ProjectDetail(APIView):
 
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly
-    ]
+    # permission_classes = [
+    #     permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly
+    # ]
 
     def get_object(self, pk):
         try:
             project = Project.objects.get(pk=pk)
-            self.check_object_permissions(self.request, project)
+            # self.check_object_permissions(self.request, project)
             return project
         except Project.DoesNotExist:
             raise Http404
@@ -64,10 +64,11 @@ class PledgeList(APIView):
         serializer = PledgeSerializer(pledges, many=True)
         return Response(serializer.data)
     
+    
     def post(self, request):
         serializer = PledgeSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(owner=request.user)
+            serializer.save(supporter=request.user)
             return Response(
                 serializer.data,
                 status=status.HTTP_201_CREATED
