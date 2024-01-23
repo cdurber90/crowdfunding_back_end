@@ -7,7 +7,10 @@ from rest_framework import status, permissions
 from .permissions import IsOwnerOrReadOnly
 
 class ProjectList(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+        ]
 
     def get(self, request):
         projects = Project.objects.all()
@@ -56,6 +59,12 @@ class ProjectDetail(APIView):
             )
         if serializer.is_valid():
             serializer.save()
+            return Response(serializer.data)
+
+        return Response(
+            serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST
+        )
     
 class PledgeList(APIView):
 
