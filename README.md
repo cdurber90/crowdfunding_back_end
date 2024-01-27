@@ -93,6 +93,6 @@ Example:
 
 ## Database Schema:
 
-[Database Schema](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/Flowchart.png?raw=true)
+![Database Schema](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/Flowchart.png?raw=true)
 
 
