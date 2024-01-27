@@ -12,7 +12,7 @@ Are you a healthcare hero in need that is struggling to make ends meet? Or are y
 {
 	"username":"<username>",
 	"password":"<password>",
-	"first_name": "<first name",
+	"first_name": "<first name>",
 	"last_name": "<last name>",
 	"email": "<email address>"
 }
@@ -41,9 +41,9 @@ Example:
 Example:
 ![Example of creating a new pledge](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-pledge.png?raw=true)
 
-## Other project requirements:
+## Insomnia:
 
-[x] A screenshot of Insomnia, demonstrating a successful GET method for any endpoint:
+### A screenshot of Insomnia, demonstrating a successful GET method for any endpoint:
 
 1. GET a list of all users:
 ![GET users](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-users.png?raw=true)
@@ -54,7 +54,7 @@ Example:
 3. GET a list of all pledges:
 ![GET pledges](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-pledges.png?raw=true)
 
-[x] A screenshot of Insomnia, demonstrating a successful POST method for any endpoint:
+### A screenshot of Insomnia, demonstrating a successful POST method for any endpoint:
 
 1. POST a new user:
 ![POST user](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-user.png?raw=true)
@@ -65,7 +65,32 @@ Example:
 3. POST a new pledge:
 ![POST pledge](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-pledge.png?raw=true)
 
-[x] A screenshot of Insomnia, demonstrating a token being returned:
+### A screenshot of Insomnia, demonstrating a token being returned:
+
 ![RETURN TOKEN](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/api-token-auth.png?raw=true)
+
+## API Specification:
+
+
+| Endpoint      | Method| Body                           | Authentication | Implemented? |
+| ------------- | ----- | ---------------------------    |
+| /projects/    | `GET `  | List of all project objects    | N | Y |
+| /projects/    | `POST`  | Project object without ID      | Y | Y |
+| /projects/PK  | `GET`   | Specific project object        | Y | Y |
+| /projects/PK  | `PUT`   | Update specific project object | Y | Y |
+| /pledges/     | `GET`   | List of all pledge objects     | N | Y |
+| /pledges/     | `POST`  | Pledge object without ID       | Y | Y |
+| /pledges/PK   | `GET`   | Specific pledge object         | N | Y |
+| /pledges/PK   | `PUT`   | Update specific pledge object  | Y | Y |
+| /users/       | `GET`   | List of all user obkects       | N | Y |
+| /users/       | `POST`  | User object without ID         | N | Y |
+| /users/PK     | `GET`   | Specific user object           | N | Y |
+| /users/PK     | `PUT`   | Update specific user object    | Y | Y |
+
+
+
+## Database Schema:
+
+XXX
 
 
