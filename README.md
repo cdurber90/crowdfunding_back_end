@@ -1,8 +1,10 @@
-[Help a Healthcare Hero](https://crowdfunding-back-end1990.fly.dev/projects/)
+
 
 # Help a Healthcare Hero!
 
 Are you a healthcare hero in need that is struggling to make ends meet? Or are you simply a good samaritan looking to donate to a struggling nurse, allied health professional, ambulance officer or paramedic? Look no further! Simply search a healthcare hero in need and donate!
+
+[Help a Healthcare Hero](https://crowdfunding-back-end1990.fly.dev/projects/)
 
 ## How to register:
 1. Navigate to https://crowdfunding-back-end1990.fly.dev/users/
@@ -91,6 +93,6 @@ Example:
 
 ## Database Schema:
 
-XXX
+[Database Schema](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/Flowchart.png?raw=true)
 
 
