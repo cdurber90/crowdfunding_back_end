@@ -17,10 +17,11 @@ RUN set -ex && \
 
 COPY crowdfunding/ /code/
 
-ENV SECRET_KEY "QFsKACXk6JIXM95nYLOw63WEbpTxeBQqOoXP2UKtYgriEZ3uUk"
+# ENV SECRET_KEY "QFsKACXk6JIXM95nYLOw63WEbpTxeBQqOoXP2UKtYgriEZ3uUk"
 RUN python manage.py collectstatic --noinput
 RUN chmod +x /code/run.sh
 
 EXPOSE 8000
 
+# replace demo.wsgi with <project_name>.wsgi
 CMD ["/code/run.sh"]
