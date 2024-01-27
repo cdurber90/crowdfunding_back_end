@@ -1,31 +1,30 @@
 from rest_framework import serializers
-from .models import Project, Pledge
+from .models import HealthcareHero, Donation
 
-class PledgeSerializer(serializers.ModelSerializer):
+class HealthcareHeroSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.id')
     class Meta:
-        model = Pledge
-        fields ='__all__'
+        model = HealthcareHero
+        fields = "__all__"
 
-# class PledgeDetailSerializer(ProjectSerializer):
-#     pledges = PledgeSerializer(many=True, read_only=True)
-
-#     def update(self, instance, validated_data):
-#         instance.amount = validated_data.get('amount', instance.amount)
-#         instance.comment = validated_data.get('comment', instance.comment)
-#         instance.anonymous = validated_data.get('anonymous', instance.anonymous)
-#         instance.project = validated_data.get('project', instance.project)
-#         instance.save()
-#         return instance
-    
-class ProjectSerializer(serializers.ModelSerializer):
+class DonationSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.id')
-    class Meta:        
-        model = Project        
+
+    def update(self, instance, validated_data):
+        instance.amount = validated_data.get('amount', instance.amount)
+        instance.comment = validated_data.get('comment', instance.comment)
+        instance.anonymous = validated_data.get('anonymous', instance.anonymous)
+        instance.healthcarehero = validated_data.get('Healthcare Hero', instance.healthcarehero)
+        instance.save()
+        return instance
+    
+    class Meta:
+        model = Donation
         fields ='__all__'
 
-class ProjectDetailSerializer(ProjectSerializer):
-    pledges = PledgeSerializer(many=True, read_only=True)
+class HealthcareHeroDetailSerializer(serializers.ModelSerializer):
+    donations = DonationSerializer(many=True, read_only=True)
+    owner = serializers.ReadOnlyField(source='owner.id')
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
@@ -39,6 +38,26 @@ class ProjectDetailSerializer(ProjectSerializer):
         return instance
 
 
+
+
+
+class DonationDetailSerializer(serializers.ModelSerializer):
+    healthcarehero = HealthcareHeroSerializer(many=True, read_only=True)
+    donation = DonationSerializer(many=True, read_only=True)
+    
+    def update(self, instance, validated_data):
+        instance.ticket_name = validated_data.get('ticket_name', instance.ticket_name)
+        instance.cost = validated_data.get('cost',instance.cost)
+        instance.features = validated_data.get('features', instance.features)
+        instance.festival = validated_data.get('festival', instance.festival)
+        instance.ticket_owner = validated_data.get('ticket_owner', instance.ticket_owner)
+        instance.save()
+        return instance
+    
+    class Meta:
+        model = Donation
+        fields = "__all__"
+    
 
 
 

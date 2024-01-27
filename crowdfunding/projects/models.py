@@ -3,9 +3,10 @@ from django.contrib.auth import get_user_model
 
 # Create your models here.
 
-class Project(models.Model):
-    title = models.CharField(max_length=200)
-    description = models.TextField()
+class HealthcareHero(models.Model):
+    name = models.CharField(max_length=200)
+    workplace = models.CharField(max_length=200)
+    bio = models.TextField()
     goal = models.IntegerField()
     image = models.URLField()
     is_open = models.BooleanField()
@@ -13,22 +14,23 @@ class Project(models.Model):
     owner = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
-        related_name='owned_projects'
+        related_name='owned_heroes'
         )
+    
 
-class Pledge(models.Model):
+class Donation(models.Model):
     amount = models.IntegerField()
     comment = models.CharField(max_length=200)
     anonymous = models.BooleanField()
-    project = models.ForeignKey(
-    'Project',
+    healthcarehero = models.ForeignKey(
+    'Healthcare Hero',
     on_delete=models.CASCADE,
-    related_name='pledges'
+    related_name='donations'
     )
     
     supporter = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
-        related_name='supported_pledges'
+        related_name='owned_donations'
     )
     
