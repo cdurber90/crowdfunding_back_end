@@ -73,7 +73,7 @@ Example:
 
 
 | Endpoint      | Method| Body                           | Authentication | Implemented? |
-| ------------- | ----- | ---------------------------    |
+| ------------- | ----- | ---------------------------    | --- | --- |
 | /projects/    | `GET `  | List of all project objects    | N | Y |
 | /projects/    | `POST`  | Project object without ID      | Y | Y |
 | /projects/PK  | `GET`   | Specific project object        | Y | Y |
