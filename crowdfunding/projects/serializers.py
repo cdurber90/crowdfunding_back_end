@@ -1,30 +1,20 @@
 from rest_framework import serializers
-from .models import HealthcareHero, Donation
+from django.apps import apps
 
-class HealthcareHeroSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.id')
+class PledgeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = HealthcareHero
-        fields = "__all__"
+        model = apps.get_model('projects.Pledge')
+        fields = '__all__'
 
-class DonationSerializer(serializers.ModelSerializer):
+class ProjectSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.id')
-
-    def update(self, instance, validated_data):
-        instance.amount = validated_data.get('amount', instance.amount)
-        instance.comment = validated_data.get('comment', instance.comment)
-        instance.anonymous = validated_data.get('anonymous', instance.anonymous)
-        instance.healthcarehero = validated_data.get('Healthcare Hero', instance.healthcarehero)
-        instance.save()
-        return instance
     
     class Meta:
-        model = Donation
-        fields ='__all__'
+        model = apps.get_model('projects.Project')
+        fields = '__all__'
 
-class HealthcareHeroDetailSerializer(serializers.ModelSerializer):
-    donations = DonationSerializer(many=True, read_only=True)
-    owner = serializers.ReadOnlyField(source='owner.id')
+class ProjectDetailSerializer(ProjectSerializer):
+    pledges = PledgeSerializer(many=True, read_only=True)
 
     def update(self, instance, validated_data):
         instance.title = validated_data.get('title', instance.title)
@@ -36,30 +26,3 @@ class HealthcareHeroDetailSerializer(serializers.ModelSerializer):
         instance.owner = validated_data.get('owner', instance.owner)
         instance.save()
         return instance
-
-
-
-
-
-class DonationDetailSerializer(serializers.ModelSerializer):
-    healthcarehero = HealthcareHeroSerializer(many=True, read_only=True)
-    donation = DonationSerializer(many=True, read_only=True)
-    
-    def update(self, instance, validated_data):
-        instance.ticket_name = validated_data.get('ticket_name', instance.ticket_name)
-        instance.cost = validated_data.get('cost',instance.cost)
-        instance.features = validated_data.get('features', instance.features)
-        instance.festival = validated_data.get('festival', instance.festival)
-        instance.ticket_owner = validated_data.get('ticket_owner', instance.ticket_owner)
-        instance.save()
-        return instance
-    
-    class Meta:
-        model = Donation
-        fields = "__all__"
-    
-
-
-
-
-
