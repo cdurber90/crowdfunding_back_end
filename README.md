@@ -46,26 +46,26 @@ Example:
 [x] A screenshot of Insomnia, demonstrating a successful GET method for any endpoint:
 
 1. GET a list of all users:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-users.png?raw=true)
+![GET users](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-users.png?raw=true)
 
 2. GET a list of all projects:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-projects.png?raw=true)
+![GET project](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-projects.png?raw=true)
 
 3. GET a list of all pledges:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-pledges.png?raw=true)
+![GET pledges](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/list-pledges.png?raw=true)
 
 [x] A screenshot of Insomnia, demonstrating a successful POST method for any endpoint:
 
 1. POST a new user:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-user.png?raw=true)
+![POST user](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-user.png?raw=true)
 
 2. POST a new project:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-project.png?raw=true)
+![POST project](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-project.png?raw=true)
 
 3. POST a new pledge:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-pledge.png?raw=true)
+![POST pledge](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/create-pledge.png?raw=true)
 
 [x] A screenshot of Insomnia, demonstrating a token being returned:
-!(https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/api-token-auth.png?raw=true)
+![RETURN TOKEN](https://github.com/cdurber90/crowdfunding_back_end/blob/main/images/api-token-auth.png?raw=true)
 
 
